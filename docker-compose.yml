@@ -1,13 +1,13 @@
 version: '3.8'
 
 services:
-  wise-redis:
+  score-redis:
     image: redis
-    container_name: wise-redis
+    container_name: score-redis
 
-  wise-mysql:
+  score-mysql:
     image: mysql:8
-    container_name: wise-mysql
+    container_name: score-mysql
     environment:
       - MYSQL_ROOT_PASSWORD=iamroot
       - MYSQL_DATABASE=wise_database
@@ -17,37 +17,37 @@ services:
       - './docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d'
       - './data:/var/lib/mysql'
 
-  wise-api:
+  score-api:
     image: wiseberkeley/wise-api-dev:v1
-    container_name: wise-api
+    container_name: score-api
     expose:
       - '5005'
     depends_on:
-      - wise-redis
-      - wise-mysql
+      - score-redis
+      - score-mysql
     ports:
       - '5005:5005'
       - '8080:8080'
     volumes:
-      - '../WISE-API:/app'
+      - '../SCORE-API:/app'
     command: mvn spring-boot:run -Dspring-boot.run.jvmArguments="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=*:5005" -Dspring-boot.run.profiles=dockerdev
 
-  wise-client:
-    image: wiseberkeley/wise-client-dev:v4
-    container_name: wise-client
+  score-client:
+    image: wiseberkeley/wise-client-dev:v5
+    container_name: score-client
     depends_on:
-      - wise-api
+      - score-api
     ports:
       - '4200:4200'
     volumes:
-      - '../WISE-Client:/app'
+      - '../SCORE-Client:/app'
       - '/app/node_modules/'
 
-  wise-nginx:
+  score-nginx:
     image: nginx:1.13
-    container_name: wise-nginx
+    container_name: score-nginx
     depends_on:
-      - wise-client
+      - score-client
     ports:
       - '81:80'
     volumes:
