@@ -28,8 +28,8 @@ score-client  |
 score-client  | 
 score-client  | ✔ Compiled successfully.
 ```
-6. When you see the above output in your log output, SCORE will be running at http://localhost:81. Go there with your browser to load the SCORE homepage.
-7. Log in with admin/pass, or previewuser/wise.
+5. When you see the above output in your log output, SCORE will be running at http://localhost:81. Go there with your browser to load the SCORE homepage.
+6. Log in with admin/pass, or previewuser/wise.
 
 Any changes that you make to the source code will be automatically compiled and reloaded in the browser. 
 
