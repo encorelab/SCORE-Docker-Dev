@@ -4,7 +4,7 @@
 SCORE development uses [Docker](https://www.docker.com/). Using Docker simplifies and standardizes the development environment so that developers can quickly and easily start developing SCORE.
 
 ## Setup
-1. Install Docker from [here](https://www.docker.com/products/docker-desktop).
+1. Install Docker from [here](https://www.docker.com/products/docker-desktop). In the Docker preferences, set the RAM to at least 5GB.
 2. In the same folder, checkout [SCORE-Docker-Dev (this project)](https://github.com/encorelab/SCORE-Docker-Dev), [SCORE-API](https://github.com/encorelab/SCORE-API), and [SCORE-Client](https://github.com/encorelab/SCORE-Client).
 ```
 $ git clone https://github.com/encorelab/SCORE-Docker-Dev
