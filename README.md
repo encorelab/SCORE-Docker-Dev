@@ -15,12 +15,12 @@ SCORE-Docker-Dev
 SCORE-API
 SCORE-Client
 ```
-3. Run ```docker-compose up``` in the SCORE-Docker-Dev directory
+3. Run ```docker compose up``` in the SCORE-Docker-Dev directory
 ```
 $ cd SCORE-Docker-Dev
-SCORE-Docker-Dev $ docker-compose up
+SCORE-Docker-Dev $ docker compose up
 ```
-4. Wait for everything to download, compile, and start. This can take a while depending on your connection speed.
+4. Wait for everything to download, compile, and start. This can take a while depending on your computer and connection speeds.
 5. When everything is done, SCORE will be running at http://localhost:81. Go there with your browser to load the SCORE homepage.
 6. Log in with admin/pass, or previewuser/wise.
 
