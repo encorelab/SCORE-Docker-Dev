@@ -33,7 +33,7 @@ services:
     command: mvn spring-boot:run -Dspring-boot.run.jvmArguments="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=*:5005" -Dspring-boot.run.profiles=dockerdev
 
   score-client:
-    image: wiseberkeley/wise-client-dev:v5
+    image: wiseberkeley/wise-client-dev:latest
     container_name: score-client
     depends_on:
       - score-api
@@ -41,7 +41,6 @@ services:
       - '4200:4200'
     volumes:
       - '../SCORE-Client:/app'
-      - '/app/node_modules/'
 
   score-nginx:
     image: nginx:1.13
@@ -49,6 +48,6 @@ services:
     depends_on:
       - score-client
     ports:
-      - '81:80'
+      - '80:80'
     volumes:
       - '${PWD}/nginx/conf.d:/etc/nginx/conf.d'
