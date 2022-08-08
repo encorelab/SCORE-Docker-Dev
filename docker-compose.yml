@@ -18,7 +18,7 @@ services:
       - './data:/var/lib/mysql'
 
   score-api:
-    image: wiseberkeley/wise-api-dev:v1
+    image: wiseberkeley/wise-api-dev:latest
     container_name: score-api
     expose:
       - '5005'
